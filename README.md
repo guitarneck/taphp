@@ -67,10 +67,10 @@ Declare a test that will be the only one to be runned.
 ## options
 
 Available `options` are:
-- 'todo' => true|false. See function `todo`.
-- 'skip' => true|false. See function `skip`.
-- 'only' => true|false. See function `only`.
-- 'timeout' => null|integer. Sets a timeout for the test, after which it will fail.
+- 'todo' => true|false. See function [todo](##todo-(-[$name],-[$options],-$callback-)) and method [todo](##todo-(-[$text],-[$options]-)).
+- 'skip' => true|false. See function [skip](##skip-(-[$name],-[$options],-$callback-)) and method [skip](##skip-(-[$text],-[$options]-)).
+- 'only' => true|false. See function [only](##only-(-[$name],-[$options],-$callback-)).
+- 'timeout' => null|integer. Sets a timeout for the test, after which it will fail. See method [timeout](##timeout-(-$callback,-$ms,-[$text]-)).
 
 # methods
 

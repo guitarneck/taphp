@@ -24,9 +24,9 @@ test('testing errors', function ($t) {
       $found = strpos($output,$label) !== false;
       $t->ok( $found, '`'.$label.'` should be found' );
    
-      $label = TAP_EOL."ok ".++$at." `$assert` raised an exception";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." `$assert` raised an exception";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
    }
 
    foreach ( ['exception','ifException','ifExcept','ifExpt','ifExp','ifexception','if_exception'] as $assert )
@@ -41,9 +41,9 @@ test('testing errors', function ($t) {
       $found = strpos($output,$label) !== false;
       $t->ok( $found, '`'.$label.'` should be found' );
    
-      $label = TAP_EOL."ok ".++$at." `$assert` raised an exception";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." `$assert` raised an exception";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
    }
 
    $t->end();

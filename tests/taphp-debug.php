@@ -16,12 +16,6 @@ class Helper
       system("php -f $curdir/subtests/taphp-$filename.subtest.php 2>&1"); // out & err
       return ob_get_clean();   
    }
-
-   static
-   function clean ( $text )
-   {
-      return str_replace(TAP_EOL,'',$text);
-   } 
 }
 
 $debug = false;

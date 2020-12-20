@@ -16,42 +16,42 @@ test('testing strict asserts', function ($t) {
    {
       $t->comment("-- testing $assert");
 
-      $label = TAP_EOL."ok ".++$at." testing `$assert` should succeed";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." testing `$assert` should succeed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
    
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.$label.'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
 
-      $label = TAP_EOL."ok ".++$at." testing deep `$assert` should succeed";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." testing deep `$assert` should succeed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
    
       $label = "not ok ".++$at." testing deep `$assert` should failed";
       $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.$label.'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
    }
 
    foreach ( ['notStrictEqual','notEqual','notEquals','isNotEqual','doesNotEqual','isInequal','notStrictEquals','isNot','not','not_strict_equal','not_equal','is_not_equal','is_not'] as $assert )
    {
       $t->comment("-- testing $assert");
 
-      $label = TAP_EOL."ok ".++$at." testing `$assert` should succeed";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." testing `$assert` should succeed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
 
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.$label.'` should be found' );   
+      $t->ok( $found, "`$label` should be found" );   
 
-      $label = TAP_EOL."ok ".++$at." testing deep `$assert` should succeed";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." testing deep `$assert` should succeed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
 
       $label = "not ok ".++$at." testing deep `$assert` should failed";
       $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.$label.'` should be found' );   
+      $t->ok( $found, "`$label` should be found" );   
    }
    
    $t->end();

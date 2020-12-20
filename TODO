@@ -1,0 +1,1 @@
+- Improve `throws` and `errors` with *Error* and *Throwable* classes (PHP 7 & 8).

@@ -12,21 +12,21 @@ test('testing timeout', function ($t) {
 
    $t->ok( strpos($output,'TAP version 13') !== false, 'TAPHP has runned' );
 
-   $label = TAP_EOL.'ok 1 testing timeout success';
-   $found = strpos($output,$label) !== false;
-   $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+   $label = 'ok 1 testing timeout success';
+   $found = strpos($output,TAP_EOL.$label) !== false;
+   $t->ok( $found, "`$label` should be found" );
 
    $label = 'not ok 2 testing timeout failure';
    $found = strpos($output,$label) !== false;
-   $t->ok( $found, '`'.$label.'` should be found' );
+   $t->ok( $found, "`$label'` should be found" );
 
-   $label = TAP_EOL.'ok 3 this timeout subtest succeed';
-   $found = strpos($output,$label) !== false;
-   $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+   $label = 'ok 3 this timeout subtest succeed';
+   $found = strpos($output,TAP_EOL.$label) !== false;
+   $t->ok( $found, "`$label` should be found" );
 
    $label = 'not ok 4 this timeout subtest failed';
    $found = strpos($output,$label) !== false;
-   $t->ok( $found, '`'.$label.'` should be found' );
+   $t->ok( $found, "`$label'` should be found" );
 
    $t->end();
 });

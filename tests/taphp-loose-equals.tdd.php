@@ -18,23 +18,23 @@ test('testing loose asserts', function ($t) {
 
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
 
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
       
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
 
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
       
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
    }
 
    foreach ( ['notLooseEqual','notLooseEquals','not_loose_equal'] as $assert )
@@ -43,27 +43,27 @@ test('testing loose asserts', function ($t) {
 
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );   
+      $t->ok( $found, "`$label` should be found" );   
 
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );   
+      $t->ok( $found, "`$label` should be found" );   
 
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
 
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
 
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );   
+      $t->ok( $found, "`$label` should be found" );   
 
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
    }
    
    $t->end();

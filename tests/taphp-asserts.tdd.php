@@ -16,22 +16,22 @@ test('testing asserts', function ($t) {
    {
       $t->comment("-- testing $assert");
 
-      $label = TAP_EOL."ok ".++$at." testing `$assert` should succeed";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." testing `$assert` should succeed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, '`'.$label.'` should be found' );
    
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.$label.'` should be found' );
+      $t->ok( $found, "`$label` should be found" );
    }
 
    foreach ( ['notOK','false','notok','not_ok'] as $assert )
    {
       $t->comment("-- testing $assert");
       
-      $label = TAP_EOL."ok ".++$at." testing `$assert` should succeed";
-      $found = strpos($output,$label) !== false;
-      $t->ok( $found, '`'.Helper::clean($label).'` should be found' );
+      $label = "ok ".++$at." testing `$assert` should succeed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`'$label'` should be found" );
    
       $label = "not ok ".++$at." testing `$assert` should failed";
       $found = strpos($output,$label) !== false;

@@ -2,6 +2,8 @@
 
 TAP producer library for PHP. Based on tape for node.
 
+> Tested on PHP versions : 5.6.9, 7.4.13 ,8.0.0
+
 # example
 
 ``` php
@@ -47,6 +49,14 @@ The functions and methods are nearly the same than in [tape](https://github.com/
 
 The so called `deep` methods are here for compliance with `tape`. PHP does it nativly.
 
+## only ( [$name], [$options], $callback )
+
+Declare a test that will be the only one to be runned.
+
+## skip ( [$name], [$options], $callback )
+
+Declare a test that will be skipped. It won't run.
+
 ## test ( [$name], [$options], $callback )
 
 Declare a new test. `$name` and `$options` are optional. `$callback` will be fired after preceding one's,
@@ -55,14 +65,6 @@ with a parameter giving access to `TAPHP` object's methods.
 ## todo ( [$name], [$options], $callback )
 
 Declare a test that still needs to do. Failure will be allowed.
-
-## skip ( [$name], [$options], $callback )
-
-Declare a test that will be skipped. It won't run.
-
-## only ( [$name], [$options], $callback )
-
-Declare a test that will be the only one to be runned.
 
 ## options
 
@@ -74,41 +76,118 @@ Available `options` are:
 
 # methods
 
-## setTimeLimit ( $seconds )
+## assert ( $condition, [$text] )
 
-Change PHP `max_execution_time`.
+Assert that `condition` is truthy with an optional description of the assertion `$text`.
 
-## restoreTimeLimit ()
-
-Restore PHP `max_execution_time`.
-
-## test ( [$name], [$options], $callback )
-
-Generate a new test at run time.
+Aliases: `ok`, `true`
 
 ## bailout ( [$text] )
 
 Generate an immediate exit and stop of all the tests with and optional `$text` as reason.
 
-## todo ( [$text], [$options] )
+## comment ( $text )
 
-Generate a `todo` with and optional `$text` inside a test, switching the next assertions to `todo` mode.
+Generate a comment with a message `$text`.
 
-## skip ( [$text], [$options] )
+## deepEqual ( $any, $val, [$text] )
 
-Generate a `skip` with and optional `$text` ane leaving the running test.
+Assert that `$any === $val` with an optional description of the assertion `$text`.
 
-## pass ( [$text], [$options] )
+Aliases: `deepEquals`, `isEquivalent`, `same`, `deep_equal`
 
-Generate a passing assertion with a message `$text`.
+## deepLooseEqual ( $any, $val, [$text] )
+
+Assert that `$any == $val` with an optional description of the assertion `$text`.
+
+Aliases: `deep_loose_equal`
+
+## end ( [$error] )
+
+Declare the end of a test, with an optional generated `$error`.
+
+## error ( $error, [$text] )
+
+Generate a failure for a given `$error`, as an object type of Exception, with an optional `$test` description.
+
+Aliases: `ifError`, `ifErr`, `iferror`, `if_error`
+
+## exception ( $exception, [$text] )
+
+Generate a failure for a given `$exception`, as an object type of Exception, with an optional `$test` description.
+
+Aliases: `ifException`, `ifExcept`, `ifExpt`, `ifExp`, `ifexception`, `if_exception`
 
 ## fail ( [$text], [$options] )
 
 Generate a failing assertion with a message `$text`.
 
-## comment ( $text )
+## looseEqual ( $any, $val, [$text] )
 
-Generate a comment with a message `$text`.
+Assert that `$any == $val` with an optional description of the assertion `$text`.
+
+Aliases: `looseEquals`, `loose_equal`
+
+## no ( $condition, [$text] )
+
+Assert that `condition` is falsy with an optional description of the assertion `$text`.
+
+Aliases: `notOK`, `false`, `notok`, `not_ok`
+
+## notDeepEqual ( $any, $val, [$text] )
+
+Assert that `$any !== $val` with an optional description of the assertion `$text`.
+
+Aliases: `notDeepEquals`, `notEquivalent`, `notDeeply`, `notSame`, `isNotDeepEqual`, `isNotDeeply`, `isNotEquivalent`, `isInequivalent`, `not_deep_equal`, `not_same`
+
+## notDeepLooseEqual ( $any, $val, [$text] )
+
+Assert that `$any != $val` with an optional description of the assertion `$text`.
+
+Aliases: `not_deep_loose_equal`
+
+## notLooseEqual ( $any, $val, [$text] )
+
+Assert that `$any != $val` with an optional description of the assertion `$text`.
+
+Aliases: `notLooseEquals`, `not_loose_equal`
+
+## notStrictEqual ( $any, $val, [$text] )
+
+Assert that `$any !== $val` with an optional description of the assertion `$text`.
+
+Aliases: `notEqual`, `notEquals`, `isNotEqual`, `doesNotEqual`, `isInequal`, `notStrictEquals`, `isNot`, `not`, `not_strict_equal`, `not_equal`, `is_not_equal`, `is_not`
+
+## pass ( [$text], [$options] )
+
+Generate a passing assertion with a message `$text`.
+
+## plan ( $n )
+
+Declare the number of assertions that's about to be runned. `end()` will be called
+automatically after, or an error occurs if the number of assertions doesn't match.
+
+## restoreTimeLimit ()
+
+Restore PHP `max_execution_time`.
+
+## setTimeLimit ( $seconds )
+
+Change PHP `max_execution_time`.
+
+## skip ( [$text], [$options] )
+
+Generate a `skip` with and optional `$text` ane leaving the running test.
+
+## strictEqual ( $any, $val, [$text] )
+
+Assert that `$any === $val` with an optional description of the assertion `$text`.
+
+Aliases: `equal`, `equals`, `isEqual`, `strictEquals`, `is`, `strict_equal`, `is_equal`
+
+## test ( [$name], [$options], $callback )
+
+Generate a new test at run time.
 
 ## throws ( $thrower, [$throwed], [$text] )
 
@@ -118,82 +197,9 @@ Assert that the function call `$thrower` throws an exception. `$throwed` can be 
 
 Generate an assertion that should run before `$ms` microseconds are elapse. Or it fails with an optional `$text`.
 
-## plan ( $n )
+## todo ( [$text], [$options] )
 
-Declare the number of assertions that's about to be runned. `end()` will be called
-automatically after, or an error occurs if the number of assertions doesn't match.
-
-## end ( [$error] )
-
-Declare the end of a test, with an optional generated `$error`.
-
-## assert ( $condition, [$text] )
-
-Assert that `condition` is truthy with an optional description of the assertion `$text`.
-
-Aliases: `ok`, `true`
-
-## no ( $condition, [$text] )
-
-Assert that `condition` is falsy with an optional description of the assertion `$text`.
-
-Aliases: `notOK`, `false`, `notok`, `not_ok`
-
-## error ( $error, [$text] )
-
-Aliases: `ifError`, `ifErr`, `iferror`, `if_error`
-
-## exception ( $error, [$text] )
-
-Aliases: `ifException`, `ifExcept`, `ifExpt`, `ifExp`, `ifexception`, `if_exception`
-
-## strictEqual ( $any, $val, [$text] )
-
-Assert that `$any === $val` with an optional description of the assertion `$text`.
-
-Aliases: `equal`, `equals`, `isEqual`, `strictEquals`, `is`, `strict_equal`, `is_equal`
-
-## notStrictEqual ( $any, $val, [$text] )
-
-Assert that `$any !== $val` with an optional description of the assertion `$text`.
-
-Aliases: `notEqual`, `notEquals`, `isNotEqual`, `doesNotEqual`, `isInequal`, `notStrictEquals`, `isNot`, `not`, `not_strict_equal`, `not_equal`, `is_not_equal`, `is_not`
-
-## looseEqual ( $any, $val, [$text] )
-
-Assert that `$any == $val` with an optional description of the assertion `$text`.
-
-Aliases: `looseEquals`, `loose_equal`
-
-## notLooseEqual ( $any, $val, [$text] )
-
-Assert that `$any != $val` with an optional description of the assertion `$text`.
-
-Aliases: `notLooseEquals`, `not_loose_equal`
-
-## deepEqual ( $any, $val, [$text] )
-
-Assert that `$any === $val` with an optional description of the assertion `$text`.
-
-Aliases: `deepEquals`, `isEquivalent`, `same`, `deep_equal`
-
-## notDeepEqual ( $any, $val, [$text] )
-
-Assert that `$any !== $val` with an optional description of the assertion `$text`.
-
-Aliases: `notDeepEquals`, `notEquivalent`, `notDeeply`, `notSame`, `isNotDeepEqual`, `isNotDeeply`, `isNotEquivalent`, `isInequivalent`, `not_deep_equal`, `not_same`
-
-## deepLooseEqual ( $any, $val, [$text] )
-
-Assert that `$any == $val` with an optional description of the assertion `$text`.
-
-Aliases: `deep_loose_equal`
-
-## notDeepLooseEqual ( $any, $val, [$text] )
-
-Assert that `$any != $val` with an optional description of the assertion `$text`.
-
-Aliases: `not_deep_loose_equal`
+Generate a `todo` with and optional `$text` inside a test, switching the next assertions to `todo` mode.
 
 # License
 

@@ -6,10 +6,10 @@ foreach ( ['strictEqual','equal','equals','isEqual','strictEquals','is','strict_
 {
    test("testing `$assert`",function($t) use ($assert) {
       $t->$assert(true,true,"testing `$assert` should succeed");
-      $t->$assert(1,true,"testing `$assert` should failed");
+      $t->$assert(1,true,"testing not `$assert` should failed");
 
       $t->$assert([true,1],[true,1],"testing deep `$assert` should succeed");
-      $t->$assert([true,1],[1,true],"testing deep `$assert` should failed");
+      $t->$assert([true,1],[1,true],"testing deep not `$assert` should failed");
 
       $t->end();
    });
@@ -19,10 +19,10 @@ foreach ( ['notStrictEqual','notEqual','notEquals','isNotEqual','doesNotEqual','
 {
    test("testing `$assert`",function($t) use ($assert) {
       $t->$assert(1,true,"testing `$assert` should succeed");
-      $t->$assert(true,true,"testing `$assert` should failed");
+      $t->$assert(true,true,"testing not `$assert` should failed");
       
       $t->$assert([1,true],[true,true],"testing deep `$assert` should succeed");
-      $t->$assert([true,1],[true,1],"testing deep `$assert` should failed");
+      $t->$assert([true,1],[true,1],"testing deep not `$assert` should failed");
 
       $t->end();
    });

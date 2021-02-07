@@ -20,7 +20,7 @@ test('testing strict asserts', function ($t) {
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
    
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,$label) !== false;
       $t->ok( $found, "`$label` should be found" );
 
@@ -28,7 +28,7 @@ test('testing strict asserts', function ($t) {
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
    
-      $label = "not ok ".++$at." testing deep `$assert` should failed";
+      $label = "not ok ".++$at." testing deep not `$assert` should failed";
       $found = strpos($output,$label) !== false;
       $t->ok( $found, "`$label` should be found" );
    }
@@ -41,7 +41,7 @@ test('testing strict asserts', function ($t) {
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
 
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,$label) !== false;
       $t->ok( $found, "`$label` should be found" );   
 
@@ -49,7 +49,7 @@ test('testing strict asserts', function ($t) {
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
 
-      $label = "not ok ".++$at." testing deep `$assert` should failed";
+      $label = "not ok ".++$at." testing deep not `$assert` should failed";
       $found = strpos($output,$label) !== false;
       $t->ok( $found, "`$label` should be found" );   
    }

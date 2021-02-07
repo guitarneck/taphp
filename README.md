@@ -6,9 +6,20 @@ TAP producer library for PHP. Based on tape for node.
 
 # example
 
+with composer :
+
+``` php
+require dirname(__DIR__).'/vendor/autoload.php';
+use guitarneck\taphp;
+```
+
+without composer :
+
 ``` php
 require_once 'taphp.lib.php';
+```
 
+``` php
 test('timing test', function ($t) {
    $t->plan(2);
 

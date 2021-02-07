@@ -20,5 +20,14 @@
         "files": [
             "taphp.lib.php"
         ]
+    },
+    "scripts": {
+        "test": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php tests/taphp-all.tdd.php"
+        ]
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests!"
     }
 }

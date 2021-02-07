@@ -28,6 +28,10 @@ test('testing loose asserts', function ($t) {
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
 
+      $label = "not ok ".++$at." testing not `$assert` should failed";
+      $found = strpos($output,TAP_EOL.$label) !== false;
+      $t->ok( $found, "`$label` should be found" );
+
       $label = "ok ".++$at." testing `$assert` should succeed";
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
@@ -41,15 +45,15 @@ test('testing loose asserts', function ($t) {
    {
       $t->comment("-- testing $assert");
 
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );   
 
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );   
 
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
 
@@ -57,11 +61,11 @@ test('testing loose asserts', function ($t) {
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
 
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );   
 
-      $label = "not ok ".++$at." testing `$assert` should failed";
+      $label = "not ok ".++$at." testing not `$assert` should failed";
       $found = strpos($output,TAP_EOL.$label) !== false;
       $t->ok( $found, "`$label` should be found" );
    }

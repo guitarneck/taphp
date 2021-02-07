@@ -9,6 +9,8 @@ foreach ( ['looseEqual','looseEquals','loose_equal'] as $assert )
       $t->$assert(1,'1',"testing `$assert` should succeed");
       $t->$assert('1','01',"testing `$assert` should succeed");
 
+      $t->$assert('1','a',"testing not `$assert` should failed");
+
       $t->$assert([1,1],[true,true],"testing `$assert` should succeed");
       $t->$assert(['1',1],['01',1],"testing `$assert` should succeed");
 
@@ -19,14 +21,14 @@ foreach ( ['looseEqual','looseEquals','loose_equal'] as $assert )
 foreach ( ['notLooseEqual','notLooseEquals','not_loose_equal'] as $assert )
 {
    test("testing `$assert`",function($t) use ($assert) {
-      $t->$assert(1,true,"testing `$assert` should failed");
-      $t->$assert(1,'1',"testing `$assert` should failed");
-      $t->$assert('1','01',"testing `$assert` should failed");
+      $t->$assert(1,true,"testing not `$assert` should failed");
+      $t->$assert(1,'1',"testing not `$assert` should failed");
+      $t->$assert('1','01',"testing not `$assert` should failed");
 
       $t->$assert('1','a',"testing `$assert` should succeed");
 
-      $t->$assert([1,1],[true,true],"testing `$assert` should failed");
-      $t->$assert(['1',1],['01',1],"testing `$assert` should failed");
+      $t->$assert([1,1],[true,true],"testing not `$assert` should failed");
+      $t->$assert(['1',1],['01',1],"testing not `$assert` should failed");
       
       $t->end();
    });

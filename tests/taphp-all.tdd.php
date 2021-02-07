@@ -17,7 +17,7 @@ test('testing ...', function ($t) {
    $all = [
       'errors'          => 37,
       'timeout-exit'    => 9,
-      'loose-equals'    => 34,
+      'loose-equals'    => 37,
       'timeout'         => 5,
       'asserts'         => 17,
       'strict-equals'   => 85,

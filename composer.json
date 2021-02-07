@@ -25,7 +25,12 @@
         "test": [
             "Composer\\Config::disableProcessTimeout",
             "@php tests/taphp-all.tdd.php"
-        ]
+        ],
+        "publish":[
+            "@rebase-master",
+            "git push origin master"
+        ],
+        "rebase-master": "git pull --rebase origin master"
     },
     "scripts-descriptions": {
         "test": "Run all tests!"

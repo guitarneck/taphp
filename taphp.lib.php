@@ -1,4 +1,7 @@
 <?php
+
+namespace TAPHP;
+
 if ( !defined('__TAPHP_LIB__') ):
    define('__TAPHP_LIB__',1);
 

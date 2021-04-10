@@ -1,3 +1,4 @@
 .DS_Store
 system.php
 /vendor/
+.vscode/

@@ -284,7 +284,7 @@ class TAPHP extends TAPHPReporter
          'todo'   => false,
          'skip'   => false,
          'only'   => false,
-         'timeout'   => null
+         'timeout'=> null
       );
       $func    = function (){};
 

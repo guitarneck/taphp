@@ -18,9 +18,9 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "classmap": [
-            "taphp.lib.php"
-        ]
+        "psr-0": {
+            "TAPHP\\Library\\": "taphp.lib.php"
+        }
     },
     "scripts": {
         "test": [

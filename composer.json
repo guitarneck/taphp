@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "TAPHP\\Library\\": "taphp.lib.php"
+            "TAPHP\\": "taphp.lib.php"
         }
     },
     "scripts": {

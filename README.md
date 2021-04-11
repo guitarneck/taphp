@@ -9,8 +9,7 @@ TAP producer library for PHP. Based on tape for node.
 with composer :
 
 ``` php
-require dirname(__DIR__).'/vendor/autoload.php';
-use guitarneck\taphp;
+require dirname(__DIR__).'/vendor/guitarneck/taphp.lib.php';
 ```
 
 without composer :

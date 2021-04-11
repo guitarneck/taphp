@@ -13,7 +13,6 @@ with composer :
 
 ``` php
 require dirname(__DIR__).'/vendor/guitarneck/taphp/taphp.lib.php';
-use TAPHP;
 ```
 
 without composer :

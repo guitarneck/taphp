@@ -1,6 +1,9 @@
 ﻿# taphp
 
-TAP producer library for PHP. Based on tape for node.
+TAP producer library for PHP. Based on tape for node. 
+
+This library is not psr-0/4 compliant. Indeed, its contains functions to organize the running 
+tests that make it unfriendly with composer's autoload way. 
 
 > Tested on PHP versions : 5.6.9, 7.4.13 ,8.0.0
 
@@ -9,7 +12,8 @@ TAP producer library for PHP. Based on tape for node.
 with composer :
 
 ``` php
-require dirname(__DIR__).'/vendor/guitarneck/taphp.lib.php';
+require dirname(__DIR__).'/vendor/guitarneck/taphp/taphp.lib.php';
+use TAPHP;
 ```
 
 without composer :

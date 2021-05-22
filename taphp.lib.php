@@ -718,7 +718,7 @@ class TAPHP extends TAPHPReporter
    private
    function is_regexp ( $patrn )
    {
-      return @preg_match($patrn,null) !== false;
+      return @preg_match($patrn,'') !== false;
    }
 
    //===

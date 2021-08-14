@@ -259,8 +259,76 @@ class TAPHPBasicReporter extends AbstractTAPHPReporter
 
 }
 
-/*
- * TAPHP Mains Class
+/**
+ * TAPHP Main Class
+ *
+ * @method void assert(boolean $succeed, string $description=null)   A must be true assertion with optional description.
+ * @method void ok(boolean $succeed, string $description=null)   A must be true assertion with optional description.
+ * @method void true(boolean $succeed, string $description=null)   A must be true assertion with optional description.
+ * @method void no(boolean $failed, string $description=null)   A must be false assertion with optional description.
+ * @method void notOK(boolean $failed, string $description=null)   A must be false assertion with optional description.
+ * @method void false(boolean $failed, string $description=null)   A must be false assertion with optional description.
+ * @method void notok(boolean $failed, string $description=null)   A must be false assertion with optional description.
+ * @method void not_ok(boolean $failed, string $description=null)   A must be false assertion with optional description.
+ * @method void error(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifError(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifErr(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void iferror(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void if_error(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void exception(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifException(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifExcept(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifExpt(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifExp(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void ifexception(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void if_exception(\Exception $error, string $description=null)   A must be an \Exception with optional description.
+ * @method void strictEqual(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void equal(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void equals(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void isEqual(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void strictEquals(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void is(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void strict_equal(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void is_equal(mixed $actual, mixed $expected, string $description=null)   A must be strict equal assertion between $actual and $expected with optional description.
+ * @method void notStrictEqual(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void notEqual(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void notEquals(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void isNotEqual(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void doesNotEqual(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void isInequal(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void notStrictEquals(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void isNot(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void not(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void not_strict_equal(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void not_equal(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void is_not_equal(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void is_not(mixed $actual, mixed $expected, string $description=null)   A must not be strict equal assertion between $actual and $expected with optional description.
+ * @method void looseEqual(mixed $actual, mixed $expected, string $description=null)   A must be loose equal assertion between $actual and $expected with optional description.
+ * @method void looseEquals(mixed $actual, mixed $expected, string $description=null)   A must be loose equal assertion between $actual and $expected with optional description.
+ * @method void loose_equal(mixed $actual, mixed $expected, string $description=null)   A must be loose equal assertion between $actual and $expected with optional description.
+ * @method void notLooseEqual(mixed $actual, mixed $expected, string $description=null)   A must not be loose equal assertion between $actual and $expected with optional description.
+ * @method void notLooseEquals(mixed $actual, mixed $expected, string $description=null)   A must not be loose equal assertion between $actual and $expected with optional description.
+ * @method void not_loose_equal(mixed $actual, mixed $expected, string $description=null)   A must not be loose equal assertion between $actual and $expected with optional description.
+ * @method void deepEqual(mixed $actual, mixed $expected, string $description=null)   A must be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void deepEquals(mixed $actual, mixed $expected, string $description=null)   A must be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void isEquivalent(mixed $actual, mixed $expected, string $description=null)   A must be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void same(mixed $actual, mixed $expected, string $description=null)   A must be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void deep_equal(mixed $actual, mixed $expected, string $description=null)   A must be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void notDeepEqual(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void notDeepEquals(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void notEquivalent(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void notDeeply(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void notSame(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void isNotDeepEqual(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void isNotDeeply(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void isNotEquivalent(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void isInequivalent(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void not_deep_equal(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void not_same(mixed $actual, mixed $expected, string $description=null)   A must not be deep strict equal assertion between $actual and $expected with optional description.
+ * @method void deepLooseEqual(mixed $actual, mixed $expected, string $description=null)   A must be deep loose equal assertion between $actual and $expected with optional description.
+ * @method void deep_loose_equal(mixed $actual, mixed $expected, string $description=null)   A must be deep loose equal assertion between $actual and $expected with optional description.
+ * @method void notDeepLooseEqual(mixed $actual, mixed $expected, string $description=null)   A must not be deep loose equal assertion between $actual and $expected with optional description.
+ * @method void not_deep_loose_equal(mixed $actual, mixed $expected, string $description=null)   A must not be deep loose equal assertion between $actual and $expected with optional description.
  */
 class TAPHP extends TAPHPReporter
 {
@@ -268,6 +336,11 @@ class TAPHP extends TAPHPReporter
 
    private $running;
 
+   /**
+    * Retrieve the TAPHP object.
+    * @param void
+    * @return TAPHP  The TAPHP object.
+    */
    static public
    function instance ()
    {
@@ -377,12 +450,23 @@ class TAPHP extends TAPHPReporter
       }
    }
 
+   /**
+    * Change the time limits execution for the duration of the tests.
+    *
+    * @param int $seconds  The seconds to be sets.
+    * @return void
+    */
    public
    function setTimeLimit ( $seconds )
    {
       ini_set('max_execution_time',$seconds);
    }
 
+   /**
+    * Restore the time limits to its default.
+    *
+    * @return void
+    */
    public
    function restoreTimeLimit ()
    {
@@ -396,6 +480,14 @@ class TAPHP extends TAPHPReporter
       return ((float)$usec + (float)$sec);
    }
 
+   /**
+    * Create a test for assertions. Immediate running inside a test.
+    *
+    * @param string $name  The name of the test. 
+    * @param array $options   Optional options.
+    * @param callable $func   The callback for the tests.
+    * @return void
+    */
    public
    function test ( $name, $options=array(), $func=null )
    {
@@ -423,8 +515,14 @@ class TAPHP extends TAPHPReporter
          ));
    }
 
+   /**
+    * Immeditate stop and exit all the tests.
+    *
+    * @param string $text  Optional reason of the end of the tests.
+    * @return void
+    */
    public
-   function bailout ( $text )
+   function bailout ( $text='' )
    {
       $this->bailouting($text);
       $this->bailed = true;
@@ -458,12 +556,19 @@ class TAPHP extends TAPHPReporter
       if ( key_exists('need',$parms) )
       {
          $this->diagnose(array(
-            'actual'    => $parms['real'],
-            'expected'  => $parms['need']
+            'actual'    => $parms['real'] === null ? 'null' : $parms['real'],
+            'expected'  => $parms['need'] === null ? 'null' : $parms['need']
          ));
       }
    }
 
+   /**
+    * A todo consigment.
+    *
+    * @param string $text  Optional text to be displayed.
+    * @param array $options   Optional options.
+    * @return void
+    */
    public
    function todo ( $text='', $options=array() )
    {
@@ -479,6 +584,13 @@ class TAPHP extends TAPHPReporter
       $this->todo = $options['todo'];
    }
 
+   /**
+    * Skip the test.
+    *
+    * @param string $text  Optional text to be displayed.
+    * @param array $options   Optional options.
+    * @return void
+    */
    public
    function skip ( $text='', $options=array() )
    {
@@ -494,6 +606,13 @@ class TAPHP extends TAPHPReporter
       $this->skip = $options['skip'];
    }
 
+   /**
+    * Success of the test.
+    *
+    * @param string|null $text   Optional text to be displayed.
+    * @param array $options   Optional options.
+    * @return void
+    */
    public
    function pass ( $text=null, $options=array() )
    {
@@ -506,7 +625,14 @@ class TAPHP extends TAPHPReporter
       ));
    }
 
-   public
+   /**
+    * Failure of the test.
+    *
+    * @param string|null $text   Optional text to be displayed.
+    * @param array $options   Optional options.
+    * @return void
+    */
+    public
    function fail ( $text=null, $options=array() )
    {
       $this->result(array_merge(
@@ -518,6 +644,12 @@ class TAPHP extends TAPHPReporter
       ));
    }
 
+   /**
+    * Display a comment.
+    *
+    * @param string $text  The comment to be displayed.
+    * @return void
+    */
    public
    function comment ( $text )
    {
@@ -599,6 +731,14 @@ class TAPHP extends TAPHPReporter
       ));   
    }
 
+   /**
+    * Assert an \Exception is thrown.
+    *
+    * @param callable $thrower   A callback throwing an exception.
+    * @param mixed $throwed   An expected exception.
+    * @param string $text  Optional description of the assertion.
+    * @return void
+    */
    public
    function throws ( $thrower, $throwed=null, $text=null )
    {
@@ -682,6 +822,14 @@ class TAPHP extends TAPHPReporter
       ));
    }
 
+   /**
+    * An assertion that must have run before timeout.
+    *
+    * @param callable $fn  A callback to run.
+    * @param int $ms Microseconds expected.
+    * @param string $text  Optional description of the assertion.
+    * @return void
+    */
    public
    function timeout ( $fn, $ms, $text=null )
    {
@@ -701,6 +849,12 @@ class TAPHP extends TAPHPReporter
       ));
    }
 
+   /**
+    * Declare a number of assertions to be runned.
+    *
+    * @param int $n  The number of assertions to be runned.
+    * @return void
+    */
    public
    function plan ( $n )
    {
@@ -708,6 +862,12 @@ class TAPHP extends TAPHPReporter
       $this->plan = $n;
    }
 
+   /**
+    * Declare the end of the test.
+    *
+    * @param string $error Optinal text to be displayed.
+    * @return void
+    */
    public
    function end ( $error='' )
    {

@@ -56,6 +56,10 @@ This class is a singleton.
 
 Returns the instance for this class. If realy you need it.
 
+## discardExit ()
+
+This method prevents TAPHP to terminate with an exit code. It can be usefull in some circonstances, when tasks still to be done. 
+
 # functions
 
 The functions and methods are nearly the same than in [tape](https://github.com/substack/tape), with some differents due to PHP language.

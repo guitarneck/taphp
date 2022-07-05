@@ -334,7 +334,8 @@ class TAPHP extends TAPHPReporter
 {
    protected $tests;
 
-   private $running;
+   private  $running,
+            $exit = true;
 
    /**
     * Retrieve the TAPHP object.
@@ -387,20 +388,39 @@ class TAPHP extends TAPHPReporter
       $this->tests   = array();
       $this->bailed  = false;
       $this->running = false;
+
+      register_shutdown_function(function(TAPHP $taphp){
+         $taphp->execute();
+      },$this);
    }
 
    public
    function __destruct ()
    {
+      // $this->execute();
+      if ( $this->exit )
+         exit(($this->fail > 0 || $this->bailed) ? 255 : 0);
+   }
+
+   private
+   function execute ()
+   {
       $this->running = true;
+      ob_start();
       $this->open();
       $start = $this->mstime();
       $this->run( $this->tests );
+      $error = error_get_last();
+      if ( $error !== null && $error['type'] === E_USER_WARNING ) 
+      {
+         ob_end_clean();
+         return;
+      }
       $this->duration( $this->mstime() - $start );
       $this->report();
       $this->close();
-      exit(($this->fail > 0 || $this->bailed) ? 255 : 0);
-   }
+      ob_end_flush();
+   }   
 
    private
    function run ( $tests )
@@ -437,6 +457,8 @@ class TAPHP extends TAPHPReporter
          else
             call_user_func($test['func'],$this);
 
+         //if ( error_get_last() !== null ) break;
+
          if ( $test['plan'] !== null )
          {
             if ( $test['plan'] != $test['eval'] )
@@ -448,6 +470,16 @@ class TAPHP extends TAPHPReporter
          if ( count($stack) > 0 )
             list($this->plan,$this->eval,$this->ended) = array_pop($stack);
       }
+   }
+
+   /**
+    * Discard termination of TAPHP with exit.
+    * @return void
+    */
+   public
+   function discardExit ()
+   {
+      $this->exit = false;
    }
 
    /**
@@ -495,7 +527,7 @@ class TAPHP extends TAPHPReporter
 
       if ( $options['only'] )
          if ( $this->only )
-            trigger_error('there can only be one `only test`',E_USER_ERROR);
+            trigger_error('there can only be one `only test`',E_USER_WARNING);
          else
             $this->only = true;
 

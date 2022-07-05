@@ -2,3 +2,4 @@
 system.php
 /vendor/
 .vscode/
+composer.lock

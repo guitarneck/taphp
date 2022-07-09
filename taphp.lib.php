@@ -1009,30 +1009,63 @@ class TAPHP extends TAPHPReporter
    //===
 }
 
+/**
+ * Define a test to run.
+ *
+ * @param string $name  The name for this test.
+ * @param array $options   The options to apply to this test.
+ * @param callable $func  The callback to run.
+ * @return void
+ */
 function test ($name='<unknown>',$options=array(),$func=null)
 {
    list($name,$options,$func) = call_user_func_array('TAPHP::parse_arguments',func_get_args());
    return TAPHP::instance()->test($name,$options,$func);
 }
 
+/**
+ * Define a test that needs todo.
+ *
+ * @param string $name  The name for this todo.
+ * @param array $options   The options to apply to this todo.
+ * @param callable $func  The callback to run.
+ * @return void
+ */
 function todo ($name='<unknown>',$options=array('todo'=>true),$func=null)
 {
    list($name,$options,$func) = call_user_func_array('TAPHP::parse_defaults',array(array('todo'=>true),func_get_args()));
    return TAPHP::instance()->test($name,$options,$func);
 }
 
+/**
+ * Define a test that will be skiped.
+ *
+ * @param string $name  The name for this skip.
+ * @param array $options   The options to apply to this skip.
+ * @param callable $func  The callback to run.
+ * @return void
+ */
 function skip ($name='<unknown>',$options=array('skip'=>true),$func=null)
 {
    list($name,$options,$func) = call_user_func_array('TAPHP::parse_defaults',array(array('skip'=>true),func_get_args()));
    return TAPHP::instance()->test($name,$options,$func);
 }
 
+/**
+ * Define the only test to run.
+ *
+ * @param string $name  The name for this only.
+ * @param array $options   The options to apply to this only.
+ * @param callable $func  The callback to run.
+ * @return void
+ */
 function only ($name='<unknown>',$options=array('only'=>true),$func=null)
 {
    list($name,$options,$func) = call_user_func_array('TAPHP::parse_defaults',array(array('only'=>true),func_get_args()));
    return TAPHP::instance()->test($name,$options,$func);
 }
 
+// The default reporter.
 TAPHP::instance()->setReporter( new TAPHPBasicReporter() );
 
 endif;

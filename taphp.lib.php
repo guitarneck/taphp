@@ -1014,7 +1014,7 @@ class TAPHP extends TAPHPReporter
  *
  * @param string $name  The name for this test.
  * @param array $options   The options to apply to this test.
- * @param callable $func  The callback to run.
+ * @param callable|null $func  The callback to run.
  * @return void
  */
 function test ($name='<unknown>',$options=array(),$func=null)
@@ -1028,7 +1028,7 @@ function test ($name='<unknown>',$options=array(),$func=null)
  *
  * @param string $name  The name for this todo.
  * @param array $options   The options to apply to this todo.
- * @param callable $func  The callback to run.
+ * @param callable|null $func  The callback to run.
  * @return void
  */
 function todo ($name='<unknown>',$options=array('todo'=>true),$func=null)
@@ -1042,7 +1042,7 @@ function todo ($name='<unknown>',$options=array('todo'=>true),$func=null)
  *
  * @param string $name  The name for this skip.
  * @param array $options   The options to apply to this skip.
- * @param callable $func  The callback to run.
+ * @param callable|null $func  The callback to run.
  * @return void
  */
 function skip ($name='<unknown>',$options=array('skip'=>true),$func=null)
@@ -1056,7 +1056,7 @@ function skip ($name='<unknown>',$options=array('skip'=>true),$func=null)
  *
  * @param string $name  The name for this only.
  * @param array $options   The options to apply to this only.
- * @param callable $func  The callback to run.
+ * @param callable|null $func  The callback to run.
  * @return void
  */
 function only ($name='<unknown>',$options=array('only'=>true),$func=null)

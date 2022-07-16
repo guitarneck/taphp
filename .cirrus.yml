@@ -16,11 +16,17 @@ test_task:
         image: php:5.6-cli
       setup_script:
         # install git, wget
-        - apt-get update & apt-get install -y git wget
+        - apt-get update
+        - apt-get install -y git wget
         # xdebug install
-        - git clone https://github.com/xdebug/xdebug.git & cd xdebug
+        - git clone https://github.com/xdebug/xdebug.git
+        - cd xdebug
         - git checkout tags/XDEBUG_2_5_5
-        - phpize & ./configure --enable-xdebug & make & make install & make clean
+        - phpize
+        - ./configure --enable-xdebug
+        - make
+        - make install
+        - make clean
         - docker-php-ext-enable xdebug
         # composer install
         - wget -O composer-setup.php https://getcomposer.org/installer
@@ -35,7 +41,8 @@ test_task:
           image: php:8.0-cli
       setup_script:
         # install git, wget
-        - apt-get update & apt-get install -y git wget
+        - apt-get update
+        - apt-get install -y git wget
         # xdebug install
         - pecl install xdebug
         - docker-php-ext-enable xdebug

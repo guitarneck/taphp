@@ -1,0 +1,46 @@
+# docker pull php:5.6-cli
+# docker run --name php5-6 -it php:5.6-cli
+# docker image rm php:5.6-cli
+# docker pull php:7.4-cli
+# docker run --name php7-4 -it php:7.4-cli
+# docker image rm php:7.4-cli
+# docker pull php:8.0-cli
+# docker run --name php8.0 -it php:8.0-cli
+# docker image rm php:8.0-cli
+
+test:
+  skip: "!changesInclude('.cirrus.yml', '**.{php}')"
+  matrix:
+    - name: Integration Tests php 5.6
+      container:
+        image: php:5.6-cli
+      setup_script:
+        # install git, wget
+        - apt update & apt install -y git wget
+        # xdebug install
+        - git clone https://github.com/xdebug/xdebug.git & cd xdebug
+        - git checkout tags/XDEBUG_2_5_5
+        - phpize & ./configure --enable-xdebug & make & make install & make clean
+        - docker-php-ext-enable xdebug
+        # composer install
+        - wget -O composer-setup.php https://getcomposer.org/installer
+        - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+    - matrix:
+      - name: Integration Tests php 7.4
+        container:
+          image: php:7.4-cli
+      - name: Integration Tests php 8.0
+        container:
+          image: php:8.0-cli
+      setup_script:
+        # install git, wget
+        - apt update & apt install -y git wget
+        # xdebug install
+        - pecl install xdebug
+        - docker-php-ext-enable xdebug
+        # composer install
+        - wget -O composer-setup.php https://getcomposer.org/installer
+        - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+  test_script: composer test

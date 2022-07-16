@@ -1,9 +1,13 @@
-﻿# taphp
+﻿![cirrus-ci - test php5.6][test-php5.6] ![cirrus-ci - test php7.4][test-php7.4] ![cirrus-ci - test php8.0][test-php8.0]
 
-TAP producer library for PHP. Based on tape for node. 
+---
 
-This library is not psr-0/4 compliant. Indeed, its contains functions to organize the running 
-tests that make it unfriendly with composer's autoload way. 
+# taphp
+
+TAP producer library for PHP. Based on tape for node.
+
+This library is not psr-0/4 compliant. Indeed, its contains functions to organize the running
+tests that make it unfriendly with composer's autoload way.
 
 > Tested on PHP versions : 5.6.9, 7.4.13 ,8.0.0
 
@@ -58,7 +62,7 @@ Returns the instance for this class. If realy you need it.
 
 ## discardExit ()
 
-This method prevents TAPHP to terminate with an exit code. It can be usefull in some circonstances, when tasks still to be done. 
+This method prevents TAPHP to terminate with an exit code. It can be usefull in some circonstances, when tasks still to be done.
 
 # functions
 
@@ -218,6 +222,12 @@ Generate an assertion that should run before `$ms` microseconds are elapse. Or i
 
 Generate a `todo` with and optional `$text` inside a test, switching the next assertions to `todo` mode.
 
+---
+
 # License
 
 [MIT © guitarneck](./LICENSE)
+
+[test-php5.6]: https://img.shields.io/cirrus/github/guitarneck/taphp?task=Integration%20Tests%20php%205.6
+[test-php7.4]: https://img.shields.io/cirrus/github/guitarneck/taphp?task=Integration%20Tests%20php%207.4
+[test-php8.0]: https://img.shields.io/cirrus/github/guitarneck/taphp?task=Integration%20Tests%20php%208.0

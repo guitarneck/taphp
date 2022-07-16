@@ -8,11 +8,7 @@
 # docker run --name php8.0 -it php:8.0-cli
 # docker image rm php:8.0-cli
 
-<<<<<<< HEAD
 test_task:
-=======
-test:
->>>>>>> 29f346a4451fc4f5c0837b9b9b6dfa4c806c693f
   skip: "!changesInclude('.cirrus.yml', '**.{php}')"
   matrix:
     - name: Integration Tests php 5.6

@@ -17,13 +17,9 @@ test_task:
       setup_script:
         # install git, wget
         - apt-get update && apt-get install -y git wget
-        # xdebug install
+        # xdebug 2.5.5 install
         - git clone https://github.com/xdebug/xdebug.git && cd xdebug && git checkout tags/XDEBUG_2_5_5
         - phpize && ./configure --enable-xdebug && make && make install && make clean
-        - docker-php-ext-enable xdebug
-        # composer install
-        - wget -O composer-setup.php https://getcomposer.org/installer
-        - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
     - matrix:
       - name: Integration Tests php 7.4
@@ -35,11 +31,15 @@ test_task:
       setup_script:
         # install git, wget
         - apt-get update && apt-get install -y git wget
-        # xdebug install
+        # xdebug 3.1.5 install
         - pecl install xdebug
-        - docker-php-ext-enable xdebug
-        # composer install
-        - wget -O composer-setup.php https://getcomposer.org/installer
-        - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+  extensions_script:
+    - docker-php-ext-enable xdebug
+
+  composer_script:
+    # composer install
+    - wget -O composer-setup.php https://getcomposer.org/installer
+    - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
   test_script: composer test

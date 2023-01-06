@@ -2,6 +2,8 @@
 
 ---
 
+<img src="./taphp-logo.svg" width="320px" />
+
 # taphp
 
 TAP producer library for PHP. Based on tape for node.

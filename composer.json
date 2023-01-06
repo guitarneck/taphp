@@ -30,5 +30,8 @@
     },
     "scripts-descriptions": {
         "test": "Run all tests!"
+    },
+    "suggest": {
+	    "guitarneck/taphp-color": "TAP consumer in CLI colors and/or HTML."
     }
 }
